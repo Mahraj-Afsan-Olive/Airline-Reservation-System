@@ -1,0 +1,94 @@
+import java.lang.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener; 
+
+
+ public class ReservationAdmin extends JFrame implements ActionListener{  
+    JButton adds,b1,b2,b3,b4,b5,b6;
+    JLabel backImg,l1;
+	
+	public ReservationAdmin(){
+	
+    super("Manage Maintanance");  
+	 setSize(1280,720);    
+     setLayout(null);    
+                  
+     ImageIcon img = new ImageIcon("Eshita3.jpg");
+	 JLabel backImg = new JLabel(" ",img,JLabel.CENTER);
+	 backImg.setBounds(0,0,1280,720);
+	 this.add(backImg);
+	 
+	l1=new JLabel("Click given below button where you want to go");
+	l1.setBounds(100,240,700,30);
+    l1.setForeground(Color.WHITE);	
+	backImg.add(l1);
+	 
+	 
+	b1=new JButton(" Manage Flight Schedule"); 
+	b1.setBounds(300,300,250,30);
+	b1.setBackground( Color.YELLOW);
+	b1.addActionListener(this);
+	backImg.add(b1);
+   
+    b2=new JButton(" Manage maintenance report"); 
+	b2.setBounds(700,300,250,30);
+	b2.setBackground( Color.YELLOW);
+	b2.addActionListener(this);
+    backImg.add(b2);	
+
+	b4=new JButton(" Logout"); 
+	b4.setBounds(1000,450,90,30);
+	b4.setBackground( Color.ORANGE);
+	b4.addActionListener(this);
+	backImg.add(b4);	
+      
+	  setVisible(true); 
+   }
+
+       public void actionPerformed(ActionEvent e){
+		 
+		 if(e.getSource()==b1)
+		 {
+			 dispose();
+			  ReservationFlightSchedule frame = new ReservationFlightSchedule ();
+		      frame.setVisible(true);
+			  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 }
+		 	
+			else if(e.getSource()==b4)
+		 {
+			 dispose();
+			 LoginFrame frame = new LoginFrame();
+			 frame.setVisible(true);
+			 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			 
+		 }
+		 
+		 else if(e.getSource()==b2)
+		 {
+			 dispose();
+			  ManageMaintenanceReport frame = new ManageMaintenanceReport();
+		      frame.setVisible(true);
+			  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			  
+		 }  
+		 
+		 
+		 
+		 
+	 
+   
+  } 
+   
+   public static void main(String[] args) { 
+	  new ReservationAdmin();
+   
+   }   
+
+ }
+
+ 
